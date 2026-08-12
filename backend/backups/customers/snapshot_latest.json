@@ -1,0 +1,229 @@
+[
+  {
+    "_id": "6a6ca8a25c2277e365b95466",
+    "customerType": "individual",
+    "businessType": "retailer",
+    "displayName": "new",
+    "tags": [],
+    "primaryContact": {
+      "name": "",
+      "email": "",
+      "phone": "0783294989"
+    },
+    "contacts": [],
+    "billingAddress": {
+      "label": "",
+      "line1": "",
+      "line2": "",
+      "city": "",
+      "state": "",
+      "country": "Sri Lanka",
+      "postalCode": "",
+      "phone": "",
+      "deliveryInstructions": "",
+      "isDefault": true,
+      "_id": "6a6ca9e1d4cc5796b4e53224"
+    },
+    "shippingAddresses": [],
+    "paymentTerms": {
+      "type": "cod",
+      "creditDays": 0,
+      "creditLimit": 0
+    },
+    "defaultDiscountPercent": 0,
+    "creditStatus": {
+      "currentBalance": 0,
+      "overdueAmount": 0,
+      "availableCredit": 0,
+      "isOverdue": false,
+      "daysPastDue": 0,
+      "onCreditHold": false
+    },
+    "analytics": {
+      "totalOrders": 0,
+      "totalOrderValue": 0,
+      "totalPaidAmount": 0
+    },
+    "status": "active",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "createdAt": "2026-07-31T13:52:34.669Z",
+    "updatedAt": "2026-07-31T13:57:53.581Z",
+    "customerCode": "CUST-1",
+    "__v": 0,
+    "updatedBy": "6a6b4e160ef6ff30e1d882f0",
+    "groupName": "—",
+    "phone": "0783294989"
+  },
+  {
+    "_id": "6a6ce2c003d84d0f4e0e463c",
+    "customerType": "individual",
+    "businessType": "distributor",
+    "displayName": "new21",
+    "tags": [],
+    "primaryContact": {
+      "name": "",
+      "email": "",
+      "phone": "0783294989"
+    },
+    "contacts": [],
+    "billingAddress": {
+      "label": "",
+      "line1": "",
+      "line2": "",
+      "city": "",
+      "state": "",
+      "country": "Sri Lanka",
+      "postalCode": "",
+      "phone": "",
+      "deliveryInstructions": "",
+      "isDefault": true,
+      "_id": "6a6ce3eee4bcfb692d01a89d"
+    },
+    "shippingAddresses": [],
+    "paymentTerms": {
+      "type": "cod",
+      "creditDays": 0,
+      "creditLimit": 0
+    },
+    "defaultDiscountPercent": 0,
+    "creditStatus": {
+      "currentBalance": 0,
+      "overdueAmount": 0,
+      "availableCredit": 0,
+      "isOverdue": false,
+      "daysPastDue": 0,
+      "onCreditHold": false
+    },
+    "analytics": {
+      "totalOrders": 0,
+      "totalOrderValue": 0,
+      "totalPaidAmount": 0
+    },
+    "status": "prospect",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "createdAt": "2026-07-31T18:00:32.457Z",
+    "updatedAt": "2026-07-31T18:05:34.083Z",
+    "customerCode": "CUST-2",
+    "__v": 0,
+    "updatedBy": "6a6b4e160ef6ff30e1d882f0",
+    "groupName": "—",
+    "phone": "0783294989"
+  },
+  {
+    "_id": "6a6ceb9a32cfb024031219e4",
+    "customerType": "individual",
+    "businessType": "end_user",
+    "displayName": "by",
+    "tags": [],
+    "primaryContact": {
+      "name": "",
+      "email": "",
+      "phone": "0783294989"
+    },
+    "contacts": [],
+    "billingAddress": {
+      "label": "",
+      "line1": "",
+      "line2": "",
+      "city": "",
+      "state": "",
+      "country": "Sri Lanka",
+      "postalCode": "",
+      "phone": "",
+      "deliveryInstructions": "",
+      "isDefault": true,
+      "_id": "6a6ceb9a32cfb024031219e5"
+    },
+    "shippingAddresses": [],
+    "paymentTerms": {
+      "type": "cod",
+      "creditDays": 0,
+      "creditLimit": 0
+    },
+    "defaultDiscountPercent": 0,
+    "creditStatus": {
+      "currentBalance": 12000,
+      "overdueAmount": 0,
+      "availableCredit": 0,
+      "isOverdue": false,
+      "daysPastDue": 0,
+      "onCreditHold": false
+    },
+    "analytics": {
+      "totalOrders": 0,
+      "totalOrderValue": 0,
+      "totalPaidAmount": 0
+    },
+    "status": "active",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "createdAt": "2026-07-31T18:38:18.879Z",
+    "updatedAt": "2026-07-31T18:46:07.386Z",
+    "customerCode": "CUST-3",
+    "__v": 0,
+    "groupName": "—",
+    "phone": "0783294989"
+  },
+  {
+    "_id": "6a6e4aa38a4f7c3e81dec11e",
+    "customerType": "individual",
+    "businessType": "retailer",
+    "displayName": "duli",
+    "customerGroupId": {
+      "_id": "6a626dfca1bfa41dca242bbb",
+      "name": "Platinum"
+    },
+    "tags": [],
+    "primaryContact": {
+      "name": "",
+      "email": "",
+      "phone": "0717452140"
+    },
+    "contacts": [],
+    "billingAddress": {
+      "label": "",
+      "line1": "",
+      "line2": "",
+      "city": "",
+      "state": "",
+      "country": "Sri Lanka",
+      "postalCode": "",
+      "phone": "",
+      "deliveryInstructions": "",
+      "isDefault": true,
+      "_id": "6a6e4b4cd241d3524610cf5f"
+    },
+    "shippingAddresses": [],
+    "paymentTerms": {
+      "type": "cod",
+      "creditDays": 0,
+      "creditLimit": 0
+    },
+    "defaultDiscountPercent": 0,
+    "creditStatus": {
+      "currentBalance": 0,
+      "overdueAmount": 0,
+      "availableCredit": 0,
+      "isOverdue": false,
+      "daysPastDue": 0,
+      "onCreditHold": false
+    },
+    "analytics": {
+      "totalOrders": 0,
+      "totalOrderValue": 0,
+      "totalPaidAmount": 0
+    },
+    "status": "inactive",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "createdAt": "2026-08-01T19:36:03.648Z",
+    "updatedAt": "2026-08-01T19:38:52.650Z",
+    "customerCode": "CUST-4",
+    "__v": 0,
+    "updatedBy": "6a6b4e160ef6ff30e1d882f0",
+    "groupName": "Platinum",
+    "phone": "0717452140"
+  }
+]

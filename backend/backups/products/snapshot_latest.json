@@ -1,0 +1,574 @@
+[
+  {
+    "_id": "6a62ef7bcfb8f6bf1bb5cee1",
+    "name": "Broiler",
+    "productType": "finished_good",
+    "canBeManufactured": false,
+    "canBePurchased": false,
+    "canBeSold": true,
+    "shortName": "Broiler",
+    "categoryId": null,
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "kg",
+    "basePrice": 0,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 0,
+      "averageCost": 0,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 0,
+      "reorderLevel": 0,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a626d2f2add2851387df844",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-07-24T04:52:11.136Z",
+    "updatedAt": "2026-07-24T04:52:11.136Z",
+    "productCode": "P-GEN-PRD-26205-01",
+    "__v": 0,
+    "categoryName": "—",
+    "brandName": "—"
+  },
+  {
+    "_id": "6a6c8e67eca2c511d93ec5f2",
+    "name": "new",
+    "productType": "finished_good",
+    "canBeManufactured": false,
+    "canBePurchased": true,
+    "canBeSold": true,
+    "categoryId": {
+      "_id": "6a674a05a95006d16fe740ce",
+      "name": "Poultry Feeds & Ingredients"
+    },
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "1kg",
+    "basePrice": 1200,
+    "mrp": 1500,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 120,
+      "averageCost": 120,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 1500,
+      "reorderLevel": 4,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a626d2f2add2851387df844",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-07-31T12:00:39.463Z",
+    "updatedAt": "2026-07-31T17:46:29.609Z",
+    "productCode": "P-POU-PRD-26212-02",
+    "__v": 0,
+    "categoryName": "Poultry Feeds & Ingredients",
+    "brandName": "—"
+  },
+  {
+    "_id": "6a6c94591c9f825ec7d5a385",
+    "name": "new1",
+    "productType": "finished_good",
+    "canBeManufactured": false,
+    "canBePurchased": true,
+    "canBeSold": true,
+    "categoryId": {
+      "_id": "6a674a05a95006d16fe740ce",
+      "name": "Poultry Feeds & Ingredients"
+    },
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "pcs",
+    "basePrice": 0,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 1000,
+      "averageCost": 1000,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 0,
+      "reorderLevel": 0,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a626d2f2add2851387df844",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-07-31T12:26:01.069Z",
+    "updatedAt": "2026-07-31T18:37:46.704Z",
+    "productCode": "P-POU-PRD-26212-03",
+    "__v": 0,
+    "categoryName": "Poultry Feeds & Ingredients",
+    "brandName": "—"
+  },
+  {
+    "_id": "6a6c97481e78f37eebfe576e",
+    "name": "new",
+    "productType": "finished_good",
+    "canBeManufactured": false,
+    "canBePurchased": true,
+    "canBeSold": true,
+    "categoryId": {
+      "_id": "6a674a05a95006d16fe740ce",
+      "name": "Poultry Feeds & Ingredients"
+    },
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "10pcs",
+    "basePrice": 0,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 20,
+      "averageCost": 20,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 0,
+      "reorderLevel": 0,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-07-31T12:38:32.030Z",
+    "updatedAt": "2026-07-31T17:53:58.268Z",
+    "productCode": "P-POU-PRD-26212-04",
+    "__v": 0,
+    "categoryName": "Poultry Feeds & Ingredients",
+    "brandName": "—"
+  },
+  {
+    "_id": "6a6c9c70b1e8640ee2953906",
+    "name": "new5",
+    "productType": "finished_good",
+    "canBeManufactured": true,
+    "canBePurchased": true,
+    "canBeSold": true,
+    "categoryId": {
+      "_id": "6a674a05a95006d16fe740cf",
+      "name": "Piggery Feeds & Supplements"
+    },
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "10pcs",
+    "basePrice": 0,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 20,
+      "averageCost": 20,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 0,
+      "reorderLevel": 0,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a626d2f2add2851387df844",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-07-31T13:00:32.705Z",
+    "updatedAt": "2026-08-01T05:52:18.252Z",
+    "productCode": "P-PIG-PRD-26212-05",
+    "__v": 0,
+    "categoryName": "Piggery Feeds & Supplements",
+    "brandName": "—"
+  },
+  {
+    "_id": "6a6ca14f199d6a9c9b36458d",
+    "name": "new12",
+    "productType": "finished_good",
+    "canBeManufactured": false,
+    "canBePurchased": true,
+    "canBeSold": true,
+    "categoryId": {
+      "_id": "6a674a05a95006d16fe740ce",
+      "name": "Poultry Feeds & Ingredients"
+    },
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "20pcs",
+    "basePrice": 1000,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 1000,
+      "averageCost": 1000,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 0,
+      "reorderLevel": 0,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-07-31T13:21:19.068Z",
+    "updatedAt": "2026-07-31T18:00:05.049Z",
+    "productCode": "P-POU-PRD-26212-06",
+    "__v": 0,
+    "updatedBy": "6a626d2f2add2851387df844",
+    "categoryName": "Poultry Feeds & Ingredients",
+    "brandName": "—"
+  },
+  {
+    "_id": "6a6ceb2ff72ba422ff76e0da",
+    "name": "old",
+    "productType": "finished_good",
+    "canBeManufactured": false,
+    "canBePurchased": true,
+    "canBeSold": true,
+    "categoryId": {
+      "_id": "6a674a05a95006d16fe740d0",
+      "name": "Livestock Medicines & Vaccines"
+    },
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "pcs",
+    "basePrice": 0,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 0,
+      "averageCost": 0,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 0,
+      "reorderLevel": 0,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-07-31T18:36:31.079Z",
+    "updatedAt": "2026-07-31T18:36:31.079Z",
+    "productCode": "P-MED-PRD-26213-07",
+    "__v": 0,
+    "categoryName": "Livestock Medicines & Vaccines",
+    "brandName": "—"
+  },
+  {
+    "_id": "6a6e30b50d077d2dc16de02f",
+    "name": "lkj",
+    "productType": "finished_good",
+    "canBeManufactured": false,
+    "canBePurchased": true,
+    "canBeSold": true,
+    "categoryId": {
+      "_id": "6a674a05a95006d16fe740ce",
+      "name": "Poultry Feeds & Ingredients"
+    },
+    "brandId": {
+      "_id": "6a6ceb5532cfb024031219b6",
+      "name": "ll"
+    },
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "1000pcs",
+    "basePrice": 1000,
+    "mrp": 10,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 0,
+      "averageCost": 0,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 10,
+      "reorderLevel": 10,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-08-01T17:45:25.923Z",
+    "updatedAt": "2026-08-01T17:45:25.923Z",
+    "productCode": "P-POU-PRD-26213-08",
+    "__v": 0,
+    "categoryName": "Poultry Feeds & Ingredients",
+    "brandName": "ll"
+  },
+  {
+    "_id": "6a6e30ce9c84cf6509b4afcb",
+    "name": "lkjr",
+    "productType": "finished_good",
+    "canBeManufactured": false,
+    "canBePurchased": true,
+    "canBeSold": true,
+    "categoryId": {
+      "_id": "6a674a05a95006d16fe740ce",
+      "name": "Poultry Feeds & Ingredients"
+    },
+    "brandId": {
+      "_id": "6a6ceb5532cfb024031219b6",
+      "name": "ll"
+    },
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "pcs",
+    "basePrice": 1000,
+    "mrp": 10,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 0,
+      "averageCost": 0,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 10,
+      "reorderLevel": 10,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-08-01T17:45:50.657Z",
+    "updatedAt": "2026-08-01T17:45:50.657Z",
+    "productCode": "P-POU-PRD-26213-09",
+    "__v": 0,
+    "categoryName": "Poultry Feeds & Ingredients",
+    "brandName": "ll"
+  },
+  {
+    "_id": "6a6e43acee3cbe23f1ba85ba",
+    "name": "hello",
+    "productType": "finished_good",
+    "canBeManufactured": false,
+    "canBePurchased": true,
+    "canBeSold": true,
+    "categoryId": {
+      "_id": "6a674a05a95006d16fe740ce",
+      "name": "Poultry Feeds & Ingredients"
+    },
+    "brandId": {
+      "_id": "6a6ca48f5c2277e365b95443",
+      "name": "new12"
+    },
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "pcs11",
+    "basePrice": 1250,
+    "mrp": 120,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 0,
+      "averageCost": 0,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 10,
+      "reorderLevel": 10,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-08-01T19:06:20.727Z",
+    "updatedAt": "2026-08-01T19:06:36.985Z",
+    "productCode": "P-POU-PRD-26214-10",
+    "__v": 0,
+    "updatedBy": "6a6b4e160ef6ff30e1d882f0",
+    "categoryName": "Poultry Feeds & Ingredients",
+    "brandName": "new12"
+  },
+  {
+    "_id": "6a6e46009be1ab5e20e94c83",
+    "name": "chicken",
+    "productType": "finished_good",
+    "canBeManufactured": false,
+    "canBePurchased": true,
+    "canBeSold": true,
+    "categoryId": {
+      "_id": "6a674a05a95006d16fe740ce",
+      "name": "Poultry Feeds & Ingredients"
+    },
+    "brandId": {
+      "_id": "6a6ceb5532cfb024031219b6",
+      "name": "ll"
+    },
+    "tags": [],
+    "type": "trading",
+    "unitOfMeasure": "pcs10",
+    "basePrice": 1450,
+    "mrp": 2250,
+    "currency": "LKR",
+    "tax": {
+      "taxable": true,
+      "taxRate": 18
+    },
+    "costs": {
+      "lastPurchaseCost": 0,
+      "averageCost": 0,
+      "standardCost": 0
+    },
+    "stockLevels": {
+      "minimumLevel": 25,
+      "reorderLevel": 10,
+      "maximumLevel": 0
+    },
+    "packaging": {
+      "unitsPerCarton": 0,
+      "cartonsPerPallet": 0
+    },
+    "salesConfig": {
+      "sellable": true,
+      "minimumOrderQuantity": 1,
+      "allowBackorder": false
+    },
+    "status": "active",
+    "createdBy": "6a6b4e160ef6ff30e1d882f0",
+    "deletedAt": null,
+    "tierPricing": [],
+    "createdAt": "2026-08-01T19:16:16.288Z",
+    "updatedAt": "2026-08-01T19:24:36.535Z",
+    "productCode": "P-POU-PRD-26214-11",
+    "__v": 0,
+    "updatedBy": "6a6b4e160ef6ff30e1d882f0",
+    "categoryName": "Poultry Feeds & Ingredients",
+    "brandName": "ll"
+  }
+]
