@@ -21,10 +21,20 @@ const createAdmin = async () => {
     const User = (await import('./src/models/User.js')).default;
     
     // Check if user already exists
-    const existingUser = await User.findOne({ email });
+    let existingUser = await User.findOne({ email }).select('+password');
     if (existingUser) {
-      console.log(`Error: User with email ${email} already exists!`);
-      process.exit(1);
+      existingUser.password = password;
+      existingUser.role = 'admin';
+      existingUser.isActive = true;
+      existingUser.failedLoginAttempts = 0;
+      existingUser.lockedUntil = undefined;
+      await existingUser.save();
+      console.log(`\n======================================`);
+      console.log(`✓ Admin User Password Updated & Unlocked!`);
+      console.log(`  Email: ${existingUser.email}`);
+      console.log(`  Role: ${existingUser.role}`);
+      console.log(`======================================\n`);
+      return;
     }
 
     // Create the admin user

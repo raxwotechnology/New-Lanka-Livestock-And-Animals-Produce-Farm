@@ -189,6 +189,9 @@ export default function PiggeryFinancesPage() {
 
     const onIncSubmit = (data) => {
         const payload = { ...data, amount: Number(data.amount) };
+        if (!payload.batch_id || payload.batch_id === '' || payload.batch_id === 'none') {
+            delete payload.batch_id;
+        }
         if (editingIncome) {
             updateInc.mutate({ ...payload, _id: editingIncome._id });
         } else {
@@ -198,6 +201,9 @@ export default function PiggeryFinancesPage() {
 
     const onExpSubmit = (data) => {
         const payload = { ...data, amount: Number(data.amount) };
+        if (!payload.batch_id || payload.batch_id === '' || payload.batch_id === 'none') {
+            delete payload.batch_id;
+        }
         if (editingExpense) {
             updateExp.mutate({ ...payload, _id: editingExpense._id });
         } else {
@@ -409,6 +415,10 @@ export default function PiggeryFinancesPage() {
                                     <option value="Medicine">Medicine</option>
                                     <option value="Maintenance">Maintenance</option>
                                     <option value="Transport">Transport</option>
+                                    <option value="Salary">Salary</option>
+                                    <option value="Fuel">Fuel</option>
+                                    <option value="Labor">Labor</option>
+                                    <option value="Utility">Utility</option>
                                     <option value="Other">Other</option>
                                 </select>
                             </div>

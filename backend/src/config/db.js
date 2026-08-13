@@ -5,12 +5,16 @@ let mongoServer;
 
 const connectDB = async (retryCount = 0) => {
     try {
-        let uri = process.env.MONGO_URI;
+        let uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/wholesale_system';
         if (mongoServer) {
             uri = mongoServer.getUri();
+        } else if (uri.includes('localhost')) {
+            uri = uri.replace('localhost', '127.0.0.1');
         }
 
-        const conn = await mongoose.connect(uri);
+        const conn = await mongoose.connect(uri, {
+            serverSelectionTimeoutMS: 5000,
+        });
         console.log(`✓ MongoDB Connected: ${conn.connection.host}`);
         
         if (mongoServer) {
@@ -23,8 +27,12 @@ const connectDB = async (retryCount = 0) => {
         
         if (!mongoServer && retryCount < 1) {
             console.log('  Falling back to In-Memory Database...');
-            mongoServer = await MongoMemoryServer.create();
-            return connectDB(retryCount + 1);
+            try {
+                mongoServer = await MongoMemoryServer.create();
+                return connectDB(retryCount + 1);
+            } catch (memErr) {
+                console.error('  In-Memory Database Error:', memErr.message);
+            }
         }
         
         console.log('  Retrying connection in 5 seconds...');

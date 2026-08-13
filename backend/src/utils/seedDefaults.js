@@ -134,23 +134,57 @@ const seedSriLankaHolidays = async () => {
     console.log(`✓ Seeded ${holidays2026.length} Sri Lanka holidays for 2026`);
 };
 
-const seedAdminUser = async () => {
-    const existing = await User.countDocuments();
-    if (existing > 0) {
-        console.log('✓ Users already exist, skipping admin seed');
-        return;
+const seedDefaultUsers = async () => {
+    const usersToSeed = [
+        {
+            firstName: 'Admin',
+            lastName: 'User',
+            email: 'admin@lankalivestock.com',
+            phone: '+94771234567',
+            password: 'Admin123!',
+            role: 'admin',
+        },
+        {
+            firstName: 'Admin',
+            lastName: 'System',
+            email: 'admin@example.com',
+            phone: '+94771234560',
+            password: 'Admin123!',
+            role: 'admin',
+        },
+        {
+            firstName: 'Farm',
+            lastName: 'Manager',
+            email: 'manager@lankalivestock.com',
+            phone: '+94771234568',
+            password: 'Manager123!',
+            role: 'manager',
+        },
+        {
+            firstName: 'Farm',
+            lastName: 'Manager',
+            email: 'manager@example.com',
+            phone: '+94771234569',
+            password: 'Manager123!',
+            role: 'manager',
+        }
+    ];
+
+    for (const u of usersToSeed) {
+        let user = await User.findOne({ email: u.email }).select('+password');
+        if (!user) {
+            await User.create(u);
+            console.log(`✓ Seeded user (${u.email}) [Role: ${u.role}]`);
+        } else {
+            user.password = u.password;
+            user.isActive = true;
+            user.lockedUntil = undefined;
+            user.failedLoginAttempts = 0;
+            user.role = u.role;
+            await user.save();
+            console.log(`✓ Updated & unlocked user (${u.email}) [Role: ${u.role}]`);
+        }
     }
-
-    await User.create({
-        firstName: 'Admin',
-        lastName: 'User',
-        email: 'admin@example.com',
-        phone: '+94771234567',
-        password: 'Admin123!',
-        role: 'admin',
-    });
-
-    console.log('✓ Seeded default admin user (admin@example.com)');
 };
 
 // In your main seedDefaults function, add:
@@ -183,7 +217,7 @@ export const seedDefaults = async () => {
             console.log(`✓ Seeded default Warehouse (MAIN)`);
         }
 
-        await seedAdminUser();
+        await seedDefaultUsers();
         await seedSriLankaHolidays();
         await seedPermissions();
 

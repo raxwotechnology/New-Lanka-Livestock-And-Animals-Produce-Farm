@@ -124,12 +124,20 @@ export const getExpenses = asyncHandler(async (req, res) => {
 });
 
 export const createExpense = asyncHandler(async (req, res) => {
-    const expense = await PiggeryExpense.create(req.body);
+    const data = { ...req.body };
+    if (!data.batch_id || data.batch_id === '' || data.batch_id === 'none') {
+        delete data.batch_id;
+    }
+    const expense = await PiggeryExpense.create(data);
     res.status(201).json(expense);
 });
 
 export const updateExpense = asyncHandler(async (req, res) => {
-    const expense = await PiggeryExpense.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const data = { ...req.body };
+    if (!data.batch_id || data.batch_id === '' || data.batch_id === 'none') {
+        data.batch_id = null;
+    }
+    const expense = await PiggeryExpense.findByIdAndUpdate(req.params.id, data, { new: true });
     if (!expense) return res.status(404).json({ message: 'Expense not found' });
     res.json(expense);
 });
@@ -151,12 +159,20 @@ export const getIncomes = asyncHandler(async (req, res) => {
 });
 
 export const createIncome = asyncHandler(async (req, res) => {
-    const income = await PiggeryIncome.create(req.body);
+    const data = { ...req.body };
+    if (!data.batch_id || data.batch_id === '' || data.batch_id === 'none') {
+        delete data.batch_id;
+    }
+    const income = await PiggeryIncome.create(data);
     res.status(201).json(income);
 });
 
 export const updateIncome = asyncHandler(async (req, res) => {
-    const income = await PiggeryIncome.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const data = { ...req.body };
+    if (!data.batch_id || data.batch_id === '' || data.batch_id === 'none') {
+        data.batch_id = null;
+    }
+    const income = await PiggeryIncome.findByIdAndUpdate(req.params.id, data, { new: true });
     if (!income) return res.status(404).json({ message: 'Income not found' });
     res.json(income);
 });
@@ -186,12 +202,13 @@ export const getBatchTransactions = asyncHandler(async (req, res) => {
 
 export const createBatchTransaction = asyncHandler(async (req, res) => {
     const { type, amount, category, description, date, batch_id, paymentMethod } = req.body;
+    const cleanBatchId = (batch_id && batch_id !== '' && batch_id !== 'none') ? batch_id : undefined;
     
     let transaction;
     if (type === 'income') {
-        transaction = await PiggeryIncome.create({ batch_id, amount, category, description, date, paymentMethod });
+        transaction = await PiggeryIncome.create({ batch_id: cleanBatchId, amount, category, description, date, paymentMethod });
     } else {
-        transaction = await PiggeryExpense.create({ batch_id, amount, category, description, date, paymentMethod });
+        transaction = await PiggeryExpense.create({ batch_id: cleanBatchId, amount, category, description, date, paymentMethod });
     }
     
     res.status(201).json({ success: true, data: transaction });

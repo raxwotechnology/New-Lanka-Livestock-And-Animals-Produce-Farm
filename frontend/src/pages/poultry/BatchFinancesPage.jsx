@@ -436,6 +436,10 @@ export default function BatchFinancesPage() {
                                                 <option value="Medicine">Medicine</option>
                                                 <option value="Maintenance">Maintenance</option>
                                                 <option value="Transport">Transport</option>
+                                                <option value="Salary">Salary</option>
+                                                <option value="Fuel">Fuel</option>
+                                                <option value="Labor">Labor</option>
+                                                <option value="Utility">Utility</option>
                                                 <option value="Other">Other</option>
                                             </>
                                         ) : (

@@ -9,7 +9,7 @@ const piggeryExpenseSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        enum: ['Feed', 'Medicine', 'Maintenance', 'Transport', 'Other']
+        enum: ['Feed', 'Medicine', 'Maintenance', 'Transport', 'Salary', 'Fuel', 'Labor', 'Utility', 'Other']
     },
     amount: {
         type: Number,
