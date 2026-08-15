@@ -125,6 +125,82 @@ export const createDailyLog = async (req, res) => {
     }
 };
 
+// Get Daily Logs
+export const getDailyLogs = async (req, res) => {
+    try {
+        const { batchId, startDate, endDate } = req.query;
+        let filter = {};
+        if (batchId && batchId !== 'all') {
+            filter.batch_id = batchId;
+        }
+        if (startDate || endDate) {
+            filter.date = {};
+            if (startDate) {
+                const s = new Date(startDate);
+                s.setHours(0, 0, 0, 0);
+                filter.date.$gte = s;
+            }
+            if (endDate) {
+                const e = new Date(endDate);
+                e.setHours(23, 59, 59, 999);
+                filter.date.$lte = e;
+            }
+        }
+        const logs = await PoultryDailyLog.find(filter)
+            .populate('batch_id', 'batch_name current_birds initial_birds status')
+            .sort({ date: -1 });
+        res.status(200).json({ success: true, data: logs });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
+// Delete Daily Log
+export const deleteDailyLog = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const log = await PoultryDailyLog.findById(id);
+        if (!log) return res.status(404).json({ success: false, message: 'Log not found' });
+
+        await PoultryDailyLog.findByIdAndDelete(id);
+        res.status(200).json({ success: true, message: 'Daily log deleted' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
+// Update Daily Log
+export const updateDailyLog = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { date, mortality_count, feed_consumed_kg, average_weight_kg } = req.body;
+
+        const oldLog = await PoultryDailyLog.findById(id);
+        if (!oldLog) return res.status(404).json({ success: false, message: 'Daily log not found' });
+
+        const mortalityDiff = (mortality_count || 0) - (oldLog.mortality_count || 0);
+
+        oldLog.date = date || oldLog.date;
+        oldLog.mortality_count = mortality_count ?? oldLog.mortality_count;
+        oldLog.feed_consumed_kg = feed_consumed_kg ?? oldLog.feed_consumed_kg;
+        oldLog.average_weight_kg = average_weight_kg ?? oldLog.average_weight_kg;
+
+        await oldLog.save();
+
+        if (mortalityDiff !== 0) {
+            const batch = await PoultryBatch.findById(oldLog.batch_id);
+            if (batch) {
+                batch.current_birds = Math.max(0, batch.current_birds - mortalityDiff);
+                await batch.save();
+            }
+        }
+
+        res.status(200).json({ success: true, data: oldLog, message: 'Daily log updated' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
 // Get Batch Analytics
 export const getBatchAnalytics = async (req, res) => {
     try {

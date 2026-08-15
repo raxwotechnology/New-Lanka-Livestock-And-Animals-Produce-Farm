@@ -1,5 +1,5 @@
 import express from 'express';
-import { createBatch, getBatches, createDailyLog, getBatchAnalytics, getBatchById, getTransactions, createTransaction, updateTransaction, deleteTransaction, getSummary, deleteBatch, updateBatch } from '../controllers/poultryController.js';
+import { createBatch, getBatches, createDailyLog, getDailyLogs, updateDailyLog, deleteDailyLog, getBatchAnalytics, getBatchById, getTransactions, createTransaction, updateTransaction, deleteTransaction, getSummary, deleteBatch, updateBatch } from '../controllers/poultryController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
@@ -16,6 +16,9 @@ router.put('/batches/:id', updateBatch);
 router.delete('/batches/:id', deleteBatch);
 
 router.post('/logs', createDailyLog);
+router.get('/logs', getDailyLogs);
+router.put('/logs/:id', updateDailyLog);
+router.delete('/logs/:id', deleteDailyLog);
 router.get('/analytics/:batchId', getBatchAnalytics);
 
 router.get('/transactions', getTransactions);
