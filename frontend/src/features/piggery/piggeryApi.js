@@ -17,6 +17,7 @@ export const piggeryApi = {
     getBreedingRecords: () => api.get('/piggery/breeding'),
     createBreedingRecord: (data) => api.post('/piggery/breeding', data),
     updateBreedingRecord: ({ id, ...data }) => api.put(`/piggery/breeding/${id}`, data),
+    deleteBreedingRecord: (id) => api.delete(`/piggery/breeding/${id}`),
     
     // Finances
     getExpenses: (params) => api.get('/piggery/expenses', { params }),

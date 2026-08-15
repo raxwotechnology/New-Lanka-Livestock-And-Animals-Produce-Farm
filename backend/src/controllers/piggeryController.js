@@ -320,6 +320,14 @@ export const deleteBatch = asyncHandler(async (req, res) => {
     res.json({ success: true, message: 'Batch and related records deleted successfully' });
 });
 
+export const deleteBreedingRecord = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const record = await PigBreeding.findById(id);
+    if (!record) return res.status(404).json({ message: 'Breeding record not found' });
+    await PigBreeding.findByIdAndDelete(id);
+    res.json({ success: true, message: 'Breeding record deleted successfully' });
+});
+
 // Get Batch Analytics
 export const getBatchAnalytics = asyncHandler(async (req, res) => {
     const { batchId } = req.params;

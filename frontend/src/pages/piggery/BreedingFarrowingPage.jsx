@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Plus, CheckCircle, X } from 'lucide-react';
+import { Plus, CheckCircle, X, Trash2 } from 'lucide-react';
 import { format } from 'date-fns';
 
 import PageHeader from '../../components/ui/PageHeader';
@@ -73,6 +73,21 @@ export default function BreedingFarrowingPage() {
         }
     });
 
+    const deleteMutation = useMutation({
+        mutationFn: piggeryApi.deleteBreedingRecord,
+        onSuccess: () => {
+            queryClient.invalidateQueries(['pig-breeding']);
+            toast.success('Breeding record deleted');
+        }
+    });
+
+    const handleDelete = (row, e) => {
+        e.stopPropagation();
+        if (window.confirm('Are you sure you want to delete this breeding record?')) {
+            deleteMutation.mutate(row._id);
+        }
+    };
+
     const onAddSubmit = (data) => addMutation.mutate(data);
     const onFarrowSubmit = (data) => updateMutation.mutate({
         id: farrowModalRecord._id,
@@ -104,11 +119,18 @@ export default function BreedingFarrowingPage() {
                             label: 'Actions', 
                             key: 'actions',
                             render: (row) => (
-                                row.status === 'pregnant' && (
-                                    <Button variant="secondary" size="sm" onClick={() => setFarrowModalRecord(row)}>
-                                        <CheckCircle size={14} className="mr-1" /> Record Farrowing
-                                    </Button>
-                                )
+                                <div className="flex items-center gap-2">
+                                    {row.status === 'pregnant' && (
+                                        <Button variant="secondary" size="sm" onClick={() => setFarrowModalRecord(row)}>
+                                            <CheckCircle size={14} className="mr-1" /> Record Farrowing
+                                        </Button>
+                                    )}
+                                    {(!isDataEntry || isRecordApprovedForEdit(row, approvedEditRecords, createdRecords)) && (
+                                        <button onClick={(e) => handleDelete(row, e)} className="text-red-500 hover:text-red-700 p-1" title="Delete Record">
+                                            <Trash2 size={16} />
+                                        </button>
+                                    )}
+                                </div>
                             ) 
                         },
                     ]}

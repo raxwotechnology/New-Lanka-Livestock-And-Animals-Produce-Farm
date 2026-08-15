@@ -31,7 +31,8 @@ router.route('/breeding')
     .post(controller.createBreedingRecord);
 
 router.route('/breeding/:id')
-    .put(controller.updateBreedingRecord);
+    .put(controller.updateBreedingRecord)
+    .delete(controller.deleteBreedingRecord);
 
 // Finances (Expenses & Incomes)
 router.route('/expenses')
