@@ -76,6 +76,13 @@ export const getBatches = async (req, res) => {
                 ? ((totalMortality / batch.initial_birds) * 100).toFixed(2) 
                 : 0;
             
+            // Sync current_birds mathematically: Initial Birds minus Total Mortalities
+            const calculatedCurrentBirds = Math.max(0, batch.initial_birds - totalMortality);
+            if (batch.current_birds !== calculatedCurrentBirds) {
+                await PoultryBatch.updateOne({ _id: batch._id }, { current_birds: calculatedCurrentBirds });
+                batch.current_birds = calculatedCurrentBirds;
+            }
+
             const totalWeightGained = batch.current_birds * latestWeight;
             const fcr = totalWeightGained > 0 
                 ? (totalFeedConsumed / totalWeightGained).toFixed(2) 
@@ -161,6 +168,14 @@ export const deleteDailyLog = async (req, res) => {
         const { id } = req.params;
         const log = await PoultryDailyLog.findById(id);
         if (!log) return res.status(404).json({ success: false, message: 'Log not found' });
+
+        if (log.mortality_count > 0) {
+            const batch = await PoultryBatch.findById(log.batch_id);
+            if (batch) {
+                batch.current_birds = Math.max(0, batch.current_birds + log.mortality_count);
+                await batch.save();
+            }
+        }
 
         await PoultryDailyLog.findByIdAndDelete(id);
         res.status(200).json({ success: true, message: 'Daily log deleted' });
@@ -264,6 +279,40 @@ export const getBatchById = async (req, res) => {
         const batch = await PoultryBatch.findById(req.params.id).lean();
         if (!batch) return res.status(404).json({ success: false, message: 'Batch not found' });
         
+        const logs = await PoultryDailyLog.find({ batch_id: batch._id }).sort({ date: 1 });
+        let totalMortality = 0;
+        let totalFeedConsumed = 0;
+        let latestWeight = 0;
+
+        logs.forEach(log => {
+            totalMortality += (log.mortality_count || 0);
+            totalFeedConsumed += (log.feed_consumed_kg || 0);
+            if (log.average_weight_kg > 0) {
+                latestWeight = log.average_weight_kg;
+            }
+        });
+
+        const mortalityRate = batch.initial_birds > 0 
+            ? ((totalMortality / batch.initial_birds) * 100).toFixed(2) 
+            : 0;
+
+        const calculatedCurrentBirds = Math.max(0, batch.initial_birds - totalMortality);
+        if (batch.current_birds !== calculatedCurrentBirds) {
+            await PoultryBatch.updateOne({ _id: batch._id }, { current_birds: calculatedCurrentBirds });
+            batch.current_birds = calculatedCurrentBirds;
+        }
+
+        const totalWeightGained = batch.current_birds * latestWeight;
+        const fcr = totalWeightGained > 0 
+            ? (totalFeedConsumed / totalWeightGained).toFixed(2) 
+            : 0;
+
+        batch.analytics = {
+            totalMortality,
+            mortalityRate,
+            fcr
+        };
+
         const transactions = await PoultryTransaction.find({ batch_id: batch._id });
         const totalIncome = transactions.filter(t => t.type === 'income').reduce((sum, t) => sum + t.amount, 0);
         const totalExpense = transactions.filter(t => t.type === 'expense').reduce((sum, t) => sum + t.amount, 0);

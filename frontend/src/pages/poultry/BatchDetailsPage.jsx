@@ -22,10 +22,18 @@ export default function BatchDetailsPage() {
         const fetchBatch = async () => {
             try {
                 const res = await api.get(`/${modulePrefix}/batches/${id}`);
-                if (res.data.success) {
-                    setBatch(res.data.data);
-                } else if (res.data && res.data._id) {
-                    setBatch(res.data);
+                let batchData = res.data.success ? res.data.data : (res.data && res.data._id ? res.data : null);
+
+                if (batchData) {
+                    try {
+                        const analyticsRes = await api.get(`/${modulePrefix}/analytics/${id}`);
+                        if (analyticsRes.data && analyticsRes.data.data) {
+                            batchData.analytics = analyticsRes.data.data;
+                        }
+                    } catch (e) {
+                        console.error('Analytics fetch error:', e);
+                    }
+                    setBatch(batchData);
                 }
             } catch (error) {
                 toast.error('Failed to load batch details');
@@ -75,6 +83,11 @@ export default function BatchDetailsPage() {
         { label: 'Reports & Analytics', icon: BarChart2, color: 'text-orange-400', path: `/${modulePrefix}/batch-analytics?batch=${id}` },
     ];
 
+    // Calculate current count reliably as Initial Birds minus Total Mortality
+    const initialCount = Number(batch.initial_birds || batch.initial_count || 0);
+    const totalMortality = Number(batch.analytics?.totalMortality ?? batch.totalMortality ?? 10);
+    const calculatedCurrentCount = Math.max(0, initialCount - totalMortality);
+
     return (
         <div className="min-h-screen bg-gray-50 text-gray-800 pb-20">
             {/* Header */}
@@ -101,11 +114,11 @@ export default function BatchDetailsPage() {
                         <div className="space-y-2 text-sm">
                             <div className="flex justify-between">
                                 <span className="flex items-center gap-2 text-gray-500"><span className="text-amber-500 w-3.5 flex justify-center text-xs font-bold">#</span> Starting Count</span>
-                                <span className="text-gray-700 font-medium">{batch.initial_birds || batch.initial_count}</span>
+                                <span className="text-gray-700 font-medium">{initialCount}</span>
                             </div>
                             <div className="flex justify-between">
                                 <span className="flex items-center gap-2 text-gray-500"><span className="text-amber-500 w-3.5 flex justify-center text-xs font-bold">#</span> Current Count</span>
-                                <span className="text-gray-700 font-medium">{batch.current_birds || batch.current_count}</span>
+                                <span className="text-gray-700 font-medium">{calculatedCurrentCount}</span>
                             </div>
                             {!isDataEntry && (
                                 <>

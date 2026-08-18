@@ -236,7 +236,11 @@ export default function BatchesPage() {
                                         </div>
                                         <div className="flex justify-between">
                                             <span className="flex items-center gap-2 text-gray-500"><span className="text-amber-500 w-3.5 flex justify-center text-xs font-bold">#</span> Current Count</span>
-                                            <span className="text-gray-700 font-medium">{batch.current_birds}</span>
+                                            <span className="text-gray-700 font-medium">
+                                                {batch.analytics && batch.analytics.totalMortality !== undefined
+                                                    ? Math.max(0, batch.initial_birds - batch.analytics.totalMortality)
+                                                    : batch.current_birds}
+                                            </span>
                                         </div>
                                         {!isDataEntry && (
                                             <>
